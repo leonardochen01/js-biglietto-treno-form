@@ -1,48 +1,22 @@
-// Dati da far compilare all'utente
+//function bottone
 
-const costoPerKm = 0.21;
-const btn1 = document.getElementById('btn-save')
+document.addEventListener("click", function(){
+  
+  var km = document.getElementById("km").value;
+  
+  var age = document.getElementById("age").value;
 
-btn1.addEventListener('click',function(){
+  var costo = km * 0.21;
 
-  let kmDaPercorrere = document.getElementById("req-km");
+  if (age < 18) {
+    costo *= 0.8;
+  } else if (age >= 65) {
+    costo *= 0.6;
+  }
 
-  let age = document.getElementById("req-age").value;
-  console.log( );
+  let costoTot = costo.toFixed(2)
+
+  document.getElementById("prezzo").innerHTML = `Il costo del tuo biglietto del treno è pari a ${costoTot} euro`;
+  
 })
 
-
-
-
-
-
-
-
-
-
-// Calcola il costo totale del viaggio
-let costoTot = kmDaPercorrere * costoPerKm;
-
-
-
-
-
-
-
-
-/*
-
-// Applica lo sconto del 20% per i minorenni e del 40% agli over 65
-if (age < 18) {
-  costoTot *= 0.8;
-} else if (age > 65) {
-  costoTot *=0.6;
-}
-
-let costoScontato = costoTot.toFixed(2)
-console.log(costoScontato)
-
-// Output
-document.getElementById("output").innerHTML = `Il costo del tuo biglietto del treno è di ${costoTot} €`
-
-*/
